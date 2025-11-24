@@ -1,4 +1,119 @@
+/* Define Bootstrap color variables for potential future use 
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --color-md: #0E36BF;
+*/
+
 body {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* ensure header and other top-level sections render above the viewer */
+header {
+  order: 1; /* force header to appear first */
+  width: 100%;
+  background: #0e36bf;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  z-index: 2;
+
+  position: sticky;
+  top: 0;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+footer {
+  order: 99; /* force header to appear first */
+  width: 100%;
+  background: #0e36bf;
   justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 12px 24px;
+}
+
+.School {
+  order: 0; /* appear after header */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 24px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  align-items: center;
+}
+
+.School h1 {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.School .img {
+  height: 50px;
+  margin-right: 16px;
+}
+
+.School a {
+  display: flex;
+  color: #0e36bf;
+  font-size: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Arial;
+  font-weight: bolder;
+}
+
+/* viewer centered below the header */
+#docx-viewer {
+  order: 98; /* appear after header and .School */
+  width: 100%;
+  max-width: 960px;
+  padding: 24px;
+  box-sizing: border-box;
+  margin-top: 12px;
+  background: #fff;
+}
+
+/* better default typography for converted content */
+#docx-viewer * {
+  line-height: 1.45;
+  color: #111;
+}
+
+/* make links inside converted docx follow the page color */
+#docx-viewer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* header typography */
+header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  text-align: center;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1rem;
+  }
+  #docx-viewer {
+    padding: 16px;
+  }
 }
